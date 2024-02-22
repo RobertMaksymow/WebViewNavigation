@@ -15,14 +15,26 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+import HomeScreen from './src/screens/HomeScreen';
+import WebViewScreen from './src/screens/WebViewScreen';
+
+const Stack = createNativeStackNavigator();
 
 function App(): React.JSX.Element {
   return (
-    <SafeAreaView>
-      <View>
-        <Text>Hello from Empty App</Text>
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{title: 'Customized Header Home'}}
+        />
+        <Stack.Screen name="Header Title WebView" component={WebViewScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
