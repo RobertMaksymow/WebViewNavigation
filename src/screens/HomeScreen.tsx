@@ -1,10 +1,14 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Button} from 'react-native';
 import React from 'react';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Text>Home Screen</Text>
+      <Button
+        title="Go To Details Screen"
+        onPress={() => navigation.navigate('Header Title WebView')}
+      />
     </View>
   );
 };
