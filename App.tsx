@@ -20,6 +20,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import HomeScreen from './src/screens/HomeScreen';
 import WebViewScreen from './src/screens/WebViewScreen';
+import ParamsScreen from './src/screens/ParamsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +34,7 @@ function App(): React.JSX.Element {
           options={{title: 'Customized Header Home'}}
         />
         <Stack.Screen name="Header Title WebView" component={WebViewScreen} />
+        <Stack.Screen name="Params Screen" component={ParamsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

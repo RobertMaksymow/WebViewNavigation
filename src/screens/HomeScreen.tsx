@@ -6,8 +6,18 @@ const HomeScreen = ({navigation}) => {
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Text>Home Screen</Text>
       <Button
-        title="Go To Details Screen"
+        title="Go To WebView Screen"
         onPress={() => navigation.navigate('Header Title WebView')}
+      />
+      <Button
+        title="Go To Params Screen"
+        /* 1. Navigate to the Details route with params */
+        onPress={() =>
+          navigation.navigate('Params Screen', {
+            itemId: 86,
+            otherParam: 'anything you want here',
+          })
+        }
       />
     </View>
   );
