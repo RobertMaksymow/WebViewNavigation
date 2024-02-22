@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Button} from 'react-native';
 import React from 'react';
 
 const ParamsScreen = ({route, navigation}) => {
@@ -10,6 +10,16 @@ const ParamsScreen = ({route, navigation}) => {
       <Text>This Params Screen has parameters passed by navigator!</Text>
       <Text>itemId: {JSON.stringify(itemId)}</Text>
       <Text>otherParam: {JSON.stringify(otherParam)}</Text>
+      <Button
+        title="Go to Params Screen... again"
+        onPress={() =>
+          navigation.push('Params Screen', {
+            itemId: Math.floor(Math.random() * 100),
+          })
+        }
+      />
+      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
+      <Button title="Go back" onPress={() => navigation.goBack()} />
     </View>
   );
 };
