@@ -15,6 +15,12 @@ const WebViewScreen = ({navigation}) => {
           title="Go Forward"
           onPress={() => webViewRef.current?.goForward()}
         />
+        <Button
+          title="Inject JavaScript"
+          onPress={() =>
+            webViewRef.current?.injectJavaScript('alert(document.title)')
+          }
+        />
       </View>
       <WebView
         source={{uri: 'https://www.google.com/search?q=react+native+school'}}
