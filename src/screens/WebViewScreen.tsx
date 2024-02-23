@@ -2,8 +2,34 @@ import {StyleSheet, Text, View, ActivityIndicator, Button} from 'react-native';
 import React, {useRef} from 'react';
 import {WebView} from 'react-native-webview';
 
-const WebViewScreen = ({navigation}) => {
+const WebViewScreen = ({navigation, route}) => {
   const webViewRef = useRef<WebView>(null);
+
+  const handleNavigationStateChange = navState => {
+    // Check if WebView can go back
+    const canGoBack = navState.canGoBack;
+
+    // Update the header left button based on WebView navigation
+    navigation.setOptions({
+      headerLeft: () => (
+        <View style={{marginLeft: 10}}>
+          <Button
+            onPress={() => {
+              if (canGoBack) {
+                // If WebView can go back, go back in WebView
+                webViewRef.current.goBack();
+              } else {
+                // If WebView cannot go back, go back in the navigation stack
+                navigation.goBack();
+              }
+            }}
+            title="Go Back"
+            color="blue"
+          />
+        </View>
+      ),
+    });
+  };
 
   return (
     <>
@@ -32,6 +58,7 @@ const WebViewScreen = ({navigation}) => {
           </View>
         )}
         allowsBackForwardNavigationGestures
+        onNavigationStateChange={handleNavigationStateChange}
       />
     </>
   );

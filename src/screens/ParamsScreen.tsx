@@ -20,6 +20,10 @@ const ParamsScreen = ({navigation, route}) => {
       />
       <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
       <Button title="Go back" onPress={() => navigation.goBack()} />
+      <Button
+        title="Go To WebView Screen"
+        onPress={() => navigation.navigate('Header Title WebView')}
+      />
     </View>
   );
 };
