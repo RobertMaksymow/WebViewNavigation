@@ -27,13 +27,27 @@ const Stack = createNativeStackNavigator();
 function App(): React.JSX.Element {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: 'gray',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}>
         <Stack.Screen
           name="Home"
           component={HomeScreen}
           options={{title: 'Customized Header Home'}}
         />
-        <Stack.Screen name="Header Title WebView" component={WebViewScreen} />
+        <Stack.Screen
+          name="Header Title WebView"
+          component={WebViewScreen}
+          options={{title: 'Browse'}}
+        />
         <Stack.Screen name="Params Screen" component={ParamsScreen} />
       </Stack.Navigator>
     </NavigationContainer>

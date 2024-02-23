@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View, Button} from 'react-native';
 import React from 'react';
 
-const ParamsScreen = ({route, navigation}) => {
+const ParamsScreen = ({navigation, route}) => {
   /* 2. Get the param */
   const {itemId, otherParam} = route.params;
 

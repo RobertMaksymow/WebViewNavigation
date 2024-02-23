@@ -23,7 +23,7 @@ const WebViewScreen = ({navigation}) => {
         />
       </View>
       <WebView
-        source={{uri: 'https://www.google.com/search?q=react+native+school'}}
+        source={{uri: 'https://www.preloved.co.uk'}}
         startInLoadingState
         ref={webViewRef}
         renderLoading={() => (
